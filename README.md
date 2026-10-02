@@ -75,7 +75,7 @@ Stripe incassa ma **non emette la fattura elettronica**: la emetti tu dal tuo ge
 
 ## Modulo «Richiedi informazioni»
 
-Usa lo **stesso indirizzo Formspree della landing principale** (`https://formspree.io/f/mvzdazjd`), con i campi `corso` e `motivo` per distinguere le richieste. Se preferisci un form separato per i corsi, crealo su Formspree e sostituisci l'indirizzo in `vibe-coding/index.html`.
+Usa un modulo Formspree dedicato ai corsi (`https://formspree.io/f/xdekradz`, notifiche su `info@nmd-formazione.it`), con i campi `corso` e `motivo` per distinguere le richieste. Il modulo della landing principale resta separato.
 
 Campi inviati: `nome`, `cognome`, `email`, `azienda`, `motivo`, `messaggio`, `consenso_privacy`, `consenso_aggiornamenti`, `corso`.
 
