@@ -7,7 +7,7 @@
    Icone: Phosphor Icons, versione Light (licenza MIT).
    ═══════════════════════════════════════════════════════════ */
 
-@import url("style.css");
+@import url("style.css?v=e3cd198c");
 
 :root {
   --band-dark: #14171C;
