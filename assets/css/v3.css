@@ -859,6 +859,12 @@ body.lmodal-open { overflow: hidden; }
 /* Scheda prezzo: filetto orizzontale tra la parte prezzo e l'elenco */
 .price-box .squares, .price-box--blue .squares { margin: 22px 0 26px; padding-top: 22px; border-top: 1px solid var(--border); }
 
+/* Barra: logo al bordo sinistro e menu al bordo destro del foglio, a qualsiasi larghezza */
+.bar .wrap.bar-in { max-width: none; }
+
+.acc-note { padding: 0 0 32px 120px; max-width: 860px; font-size: 15px; line-height: 1.5; color: var(--on-dark); }
+@media (max-width: 720px) { .acc-note { padding-left: 0; } }
+
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }
 .course-list li { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--nmd-grey-200); align-items: baseline; }
