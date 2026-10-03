@@ -931,6 +931,12 @@ body.lmodal-open { overflow: hidden; }
 .groupbox { padding-left: 32px; }
 @media (max-width: 720px) { .stepsx li { padding-left: 24px; } .groupbox { padding-left: 24px; } .guarantee { padding-left: 24px; } }
 
+/* ── Elenchi puntati: interlinea standard (non aumentata) ── */
+.legal-list li { line-height: 1.5; }
+.legal-list li + li { margin-top: 12px; }
+.lmodal-card .legal-list li + li { margin-top: 10px; }
+.legal-list li::before { top: 10px; }
+
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }
 .course-list li { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--nmd-grey-200); align-items: baseline; }
@@ -941,4 +947,29 @@ body.lmodal-open { overflow: hidden; }
 .contact-lines li { display: flex; gap: 24px; padding: 8px 0; color: var(--nmd-grey-700); }
 .contact-lines span { min-width: 90px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 .page-hero { padding-bottom: 50px; }
+.page-hero .hero-grid { grid-template-columns: 1fr; }
 @media (max-width: 720px) { .course-list li { grid-template-columns: 1fr; gap: 6px; } }
+
+/* webinar */
+.page-hero.wb-hero { padding-bottom: 40px; }
+.wb-band { padding: 56px 0; }
+.wb-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: start; }
+.wb-left .legal-list li + li { margin-top: 12px; }
+.wb-note { margin-top: 26px; font-size: 14px; line-height: 1.6; color: var(--nmd-grey-700); }
+.wb-card { background: var(--nmd-grey-100); border-radius: 12px; padding: 32px 32px 30px; }
+.wb-card-title { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 26px; line-height: 1.05; letter-spacing: var(--tracking-title); color: var(--nmd-black-900); margin-bottom: 20px; }
+.wb-card-title em { font-style: normal; color: var(--accent); }
+.wb-course { padding: 56px 0; }
+.wb-course-in { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 56px; align-items: center; }
+.wb-course .headline { font-size: 32px; margin-bottom: 16px; color: var(--nmd-white); }
+.wb-hero-link a { display: inline-block; margin-top: 22px; padding: 12px 22px; border: 1px solid var(--nmd-white); border-radius: 12px; color: var(--nmd-white); font-family: var(--font-mono); font-weight: 700; font-size: 12px; letter-spacing: var(--tracking-mono-label); text-transform: uppercase; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; }
+.wb-hero-link a:hover { background: var(--nmd-white); color: var(--accent); }
+.wb-course .headline em { color: var(--nmd-white); }
+.wb-course-text { color: var(--nmd-white); max-width: 620px; line-height: 1.6; }
+.wb-course-side { text-align: center; }
+.wb-price { font-family: var(--font-mono); font-weight: 800; font-size: 64px; line-height: 1; color: var(--nmd-white); }
+.wb-price span { font-size: 26px; margin-left: 4px; }
+.wb-price-sub { margin-top: 6px; font-size: 14px; color: var(--nmd-white); }
+.wb-course-btn { display: inline-block; margin-top: 18px; padding: 14px 28px; border-radius: 12px; background: var(--nmd-white); color: var(--accent); font-family: var(--font-mono); font-weight: 700; font-size: 13px; letter-spacing: var(--tracking-mono-label); text-transform: uppercase; text-decoration: none; transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease; }
+.wb-course-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28); }
+@media (max-width: 860px) { .wb-grid, .wb-course-in { grid-template-columns: 1fr; gap: 32px; } .wb-card { padding: 24px 20px; } }
