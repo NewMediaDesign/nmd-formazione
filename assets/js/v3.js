@@ -118,3 +118,41 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   })();
 })();
+
+// ── Indicatore di scorrimento ──
+// Compare dopo 1 secondo dall'arrivo e ogni volta che l'utente resta fermo per IDLE_MS su una sezione
+// con altro contenuto sotto. Sparisce appena si scorre o si clicca. Il clic porta alla sezione successiva.
+(function () {
+  const cue = document.querySelector('.scroll-cue');
+  if (!cue) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const IDLE_MS = 6000;
+  let idleTimer = null, visible = false;
+  const moreBelow = () => scrollY + innerHeight < document.documentElement.scrollHeight - 160;
+  const show = () => {
+    if (visible || !moreBelow()) return;
+    visible = true; cue.hidden = false;
+    requestAnimationFrame(() => cue.classList.add('show'));
+  };
+  const hide = () => {
+    if (!visible) return;
+    visible = false; cue.classList.remove('show');
+    setTimeout(() => { if (!visible) cue.hidden = true; }, reduce ? 0 : 900);
+  };
+  const armIdle = () => { clearTimeout(idleTimer); idleTimer = setTimeout(show, IDLE_MS); };
+  setTimeout(() => { if (scrollY <= 40) show(); armIdle(); }, 1000);
+  let lastY = scrollY;
+  addEventListener('scroll', () => {
+    if (Math.abs(scrollY - lastY) < 4) return;
+    lastY = scrollY; hide(); armIdle();
+  }, { passive: true });
+  cue.addEventListener('click', () => {
+    const bar = document.querySelector('.bar');
+    const barH = bar ? bar.offsetHeight : 0;
+    const secs = [...document.querySelectorAll('main > .band, main > header.band, main > section')];
+    const next = secs.find((el) => el.getBoundingClientRect().top > barH + 60);
+    const y = next ? next.getBoundingClientRect().top + scrollY - barH : scrollY + innerHeight * 0.8;
+    window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+    hide(); armIdle();
+  });
+})();
