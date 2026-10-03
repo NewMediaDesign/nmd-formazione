@@ -83,3 +83,7 @@ Obiettivo: evitare che un'azienda iscriva una persona e poi giri le registrazion
 | fino al 16 ottobre | early bird a 199 € |
 | 19 ottobre | una settimana prima: comunicazione agli iscritti se il corso parte (almeno 5 iscritti); altrimenti rimborso e nota di credito |
 | 26, 28 e 30 ottobre, 18:00–21:00 | le tre sessioni |
+
+## Stripe LIVE (dal 2026-10-03)
+
+Prodotto `prod_VNLO1kzFfvtXYj`, prezzi 199 € (early bird, fino al 16/10) e 240 €. Payment Link live: `https://buy.stripe.com/5kQ7sK53b9IFcxyea7gA800` (199 €) e `https://buy.stripe.com/5kQbJ0fHP6wt69ad63gA801` (240 €). Solo carta, 25 posti per link (il totale lo controlla l'utente), ritorno a `vibe-coding/grazie.html`. Creati con `server/setup_live.py` e una chiave con restrizioni in `server/.env.live` (non versionato). Webhook live verso Render; il server crea la fattura in Fatture in Cloud e l'invio allo SDI lo fa l'utente a mano.
