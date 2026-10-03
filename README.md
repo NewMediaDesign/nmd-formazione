@@ -1,25 +1,10 @@
-# sito-corsi/ — mini-sito dei corsi in HTML statico
+# web/ — pagine pubbliche dei corsi, HTML statico
 
-## Stato al 2 ottobre 2026 e ripresa
+## Stato e ripresa
 
-**Fatto:** pagina del corso Vibe Coding completa nella grafica e nei contenuti, pagina di ringraziamento, struttura delle pagine legali. Verificata su desktop e telefono. **Nulla è committato** (cartella non ancora in git).
+Lo stato aggiornato, le decisioni e le cose aperte stanno in **`../docs/REGISTRO-SESSIONE-2026-10-02.md`** e in **`../CLAUDE.md`**. Questa cartella è `web/`, la parte **pubblicata** (repo `NewMediaDesign/nmd-formazione`, dominio `nmd-formazione.it`). Contiene ancora la versione precedente della pagina del corso; il ridisegno è nella bozza `../bozze/vibe-coding-v3/` (non pubblicata).
 
-**Alla ripresa, prima di tutto:** l'utente avrà creato l'**account Stripe** e un **server che collega Stripe al suo sistema di fatturazione**, e lascerà le informazioni nella cartella del progetto. Leggerle prima di toccare la pagina. Se contengono chiavi segrete (`sk_live_…`, password, token), non vanno copiate in file versionati: segnalarlo all'utente e proporre un file ignorato da git.
-
-**Prossimi passi:**
-1. Stripe: prodotto e due Payment Link (vedi sotto), poi i link nel bottone `data-pay`. Va capito come il server di fatturazione riceve i dati del pagamento (codice fiscale, SDI/PEC, email del partecipante).
-2. Decisioni aperte, tutte in rosso nella pagina:
-   - immagine principale;
-   - piattaforma (Zoom, Meet o Teams);
-   - durata dell'accesso alle registrazioni;
-   - attestato sì o no;
-   - conferma delle date;
-   - IVA;
-   - quando parte l'email con il link (pagina di ringraziamento);
-   - annullamento dell'iscrizione.
-3. Testi di condizioni di vendita e privacy, da far verificare al commercialista.
-4. Pubblicazione: dove e con che indirizzo (es. sottocartella o sottodominio di new-media-design.it).
-5. Facoltativo: modulo Formspree separato per i corsi (oggi usa quello della landing).
+Fatto fin qui: pagina del corso, pagina di ringraziamento, pagine legali (testi da redigere), pagina neutra sulla radice, Payment Link di test collegati, modulo Formspree dedicato, posta `info@nmd-formazione.it`. Aperto: vedi il registro.
 
 Non è un sito: è **una pagina per corso**, dove chi arriva legge, chiede informazioni, si iscrive e paga. Niente home, niente menu, niente catalogo (i corsi a catalogo stanno sulla landing principale new-media-design.it). Nessuna build, nessun framework.
 
