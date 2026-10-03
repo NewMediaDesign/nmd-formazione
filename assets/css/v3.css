@@ -87,7 +87,7 @@ body.frame { background: var(--nmd-grey-200); padding: 40px 24px; }
 }
 
 /* ── Hero ── */
-.hero { padding: 88px 0 96px; position: relative; overflow: hidden; }
+.hero { padding: 40px 0 50px; position: relative; overflow: hidden; }
 /* Sfondo illustrato: web/assets/img/hero_bg_02.png. Un velo scuro a sinistra
    tiene leggibile il testo; se il file manca resta il nero di prima. */
 .hero {
@@ -107,11 +107,11 @@ body.frame { background: var(--nmd-grey-200); padding: 40px 24px; }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 72px; align-items: center; }
 .hero-title {
   font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
-  font-size: clamp(52px, 7.2vw, 100px); line-height: 0.8; letter-spacing: var(--tracking-title);
+  font-size: clamp(36px, 6vw, 80px); line-height: 0.8; letter-spacing: var(--tracking-title);
   color: var(--nmd-white); margin: 4px 0 32px;
 }
 .hero-title em { font-style: normal; color: var(--nmd-white); }
-.hero-title .line { display: block; overflow: hidden; padding: 0.06em 0 0.02em; }
+.hero-title .line { display: inline-block; vertical-align: top; overflow: hidden; padding: 0.06em 0 0.02em; }
 .hero-title .line-in { display: inline-block; }
 .hero-sub {
   font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.2;
@@ -337,7 +337,7 @@ body.frame { background: var(--nmd-grey-200); padding: 40px 24px; }
   body.frame { padding: 16px 10px; }
   .wrap { padding: 0 28px; }
   .band { padding: 72px 0; }
-  .hero { padding: 56px 0 64px; }
+  .hero { padding: 32px 0 40px; }
   .hero-grid, .split, .about, .two-col, .enroll { grid-template-columns: 1fr; gap: 40px; }
   .stats-grid { grid-template-columns: 1fr 1fr; row-gap: 36px; }
   .tiles { grid-template-columns: 1fr 1fr; }
@@ -462,7 +462,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (max-width: 960px) { .stat:nth-child(odd) { padding-left: 20px; border-left: 0; } }
 
 /* ── Fascia numeri: filetti più sottili, più aria tra i gruppi ── */
-.stats { padding: 80px 0; }
+.stats { padding: 50px 0; }
 .stat, .stat:first-child { padding: 10px 44px; }
 .stat { border-left: 1px solid rgba(255, 255, 255, 0.45); }
 .stat:first-child { border-left: 0; }
@@ -865,6 +865,14 @@ body.lmodal-open { overflow: hidden; }
 .acc-note { padding: 0 0 32px 120px; max-width: 860px; font-size: 15px; line-height: 1.5; color: var(--on-dark); }
 @media (max-width: 720px) { .acc-note { padding-left: 0; } }
 
+/* Hero: firma allineata in basso, a filo con la scheda prezzo */
+.hero-grid { align-items: stretch; }
+.hero-main { display: flex; flex-direction: column; }
+.hero-main .hero-who { margin-top: auto; padding-top: 48px; }
+
+/* Hero: l'etichetta resta in alto; il titolo parte in linea con la cifra del prezzo (cima delle lettere a filo con la cima del 199) */
+.hero-main > .hero-title { margin-top: 39px; }
+
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }
 .course-list li { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--nmd-grey-200); align-items: baseline; }
@@ -874,5 +882,5 @@ body.lmodal-open { overflow: hidden; }
 .contact-lines { list-style: none; }
 .contact-lines li { display: flex; gap: 24px; padding: 8px 0; color: var(--nmd-grey-700); }
 .contact-lines span { min-width: 90px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-.page-hero { padding-bottom: 96px; }
+.page-hero { padding-bottom: 50px; }
 @media (max-width: 720px) { .course-list li { grid-template-columns: 1fr; gap: 6px; } }

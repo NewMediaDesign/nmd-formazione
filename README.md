@@ -46,7 +46,7 @@ Tutto ciò che è da decidere o completare è in **testo rosso** (classe `placeh
 
 Due Payment Link, uno per prezzo (i nomi delle voci sono quelli del pannello Stripe in inglese e possono variare leggermente):
 
-1. **Prodotto** «Vibe Coding, edizione ottobre 2026» con due prezzi una tantum: 230 € (early bird) e 290 €.
+1. **Prodotto** «Vibe Coding, edizione ottobre 2026» con due prezzi una tantum: 199 € (early bird) e 240 € (prezzi aggiornati il 2026-10-03; i primi due prezzi da 230 e 290 € restano in Stripe, non più usati).
 2. **Due Payment Link**, uno per prezzo. In ciascuno:
    - *Collect customers' addresses* → indirizzo di fatturazione;
    - *Collect tax IDs* → partita IVA per chi compra come azienda;
@@ -80,6 +80,6 @@ Obiettivo: evitare che un'azienda iscriva una persona e poi giri le registrazion
 | Data | Cosa |
 |---|---|
 | entro il 7 ottobre | pagina online, Stripe collegato |
-| fino al 16 ottobre | early bird a 230 € |
+| fino al 16 ottobre | early bird a 199 € |
 | 19 ottobre | una settimana prima: comunicazione agli iscritti se il corso parte (almeno 5 iscritti); altrimenti rimborso e nota di credito |
 | 26, 28 e 30 ottobre, 18:00–21:00 | le tre sessioni |
