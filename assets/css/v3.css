@@ -104,7 +104,7 @@ body.frame { background: var(--nmd-grey-200); padding: 40px 24px; }
   animation: drift 22s ease-in-out infinite alternate; pointer-events: none;
 }
 @keyframes drift { to { transform: translate(260px, 120px) scale(1.15); } }
-.hero-grid { position: relative; display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 72px; align-items: center; }
+.hero-grid { position: relative; display: grid; grid-template-columns: 1fr 360px; gap: 72px; align-items: center; }
 .hero-title {
   font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
   font-size: clamp(36px, 6vw, 80px); line-height: 0.8; letter-spacing: var(--tracking-title);
@@ -691,7 +691,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .band--tight { padding: 96px 0 88px; }
 .band--tight .section-label { margin-bottom: 20px; }
 .band--tight .headline { margin-bottom: 14px; }
-.caption { font-size: 16px; line-height: 1.6; color: var(--nmd-grey-700); max-width: 640px; margin-bottom: 44px; }
+.caption { font-size: 16px; line-height: 1.6; color: var(--nmd-grey-700); max-width: none; margin-bottom: 44px; }
 .client img { filter: brightness(0); opacity: 0.72; transition: opacity 0.3s ease, transform 0.3s ease; }
 .client:hover img { filter: brightness(0); opacity: 1; transform: scale(1.06); }
 
@@ -872,6 +872,64 @@ body.lmodal-open { overflow: hidden; }
 
 /* Hero: l'etichetta resta in alto; il titolo parte in linea con la cifra del prezzo (cima delle lettere a filo con la cima del 199) */
 .hero-main > .hero-title { margin-top: 39px; }
+
+/* ── Finestra «Corsi»: schede ── */
+.lmodal-card--wide { max-width: 900px; }
+.courses-intro { color: var(--nmd-grey-700); margin: -6px 0 28px; max-width: 640px; }
+.courses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.ccard { display: flex; flex-direction: column; background: var(--nmd-grey-100); border-radius: 12px; padding: 26px 26px 24px; transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease; }
+.ccard:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
+.ccard-stato { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono-label); text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.ccard h3 { font-size: 21px; line-height: 1.2; color: var(--nmd-black-900); margin-bottom: 8px; }
+.ccard-sub { font-size: 15px; line-height: 1.5; color: var(--nmd-grey-700); }
+.ccard-meta { list-style: none; margin-top: 16px; font-size: 14px; color: var(--nmd-grey-700); }
+.ccard-meta li { display: flex; gap: 14px; padding: 4px 0; }
+.ccard-meta span { min-width: 92px; font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono-label); text-transform: uppercase; color: var(--nmd-grey-700); opacity: 0.7; padding-top: 2px; }
+.ccard-btn { align-self: flex-start; margin-top: auto; padding-top: 22px; background: none; border: 0; cursor: pointer; font: inherit; font-weight: 700; font-size: 14px; color: var(--accent); text-decoration: none; }
+.ccard-btn:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 720px) { .courses-grid { grid-template-columns: 1fr; } .ccard { padding: 22px 20px; } }
+
+/* ── Finestra «Corsi»: più contrasto e pulsanti evidenti ── */
+.ccard h3 { color: var(--accent); }
+.ccard-btn { display: inline-block; align-self: center; margin-top: auto; padding: 12px 22px; border-radius: 10px; background: var(--accent); color: var(--nmd-white); font-family: var(--font-mono); font-weight: 700; font-size: 12px; letter-spacing: var(--tracking-mono-label); text-transform: uppercase; transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease, background 0.2s ease; }
+.ccard-btn:hover { text-decoration: none; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(10, 106, 191, 0.35); }
+.ccard .ccard-meta { margin-bottom: 20px; }
+.ccard-sub { margin-bottom: 4px; }
+.ccard--hot { box-shadow: inset 0 0 0 2px var(--accent); }
+.ccard--hot:hover { box-shadow: inset 0 0 0 2px var(--accent), var(--shadow-card-hover); }
+.ccard-desc { font-size: 14px; line-height: 1.5; color: var(--nmd-grey-700); margin-top: 12px; }
+
+/* ── Finestra «Corsi»: versione compatta, tutto visibile senza scorrere ── */
+.lmodal-card--wide { max-width: 1040px; padding: 40px 44px 36px; }
+.lmodal-card--wide .headline { font-size: 28px; margin-bottom: 12px; }
+.lmodal-card--wide .courses-intro { font-size: 14px; margin: 0 0 22px; max-width: 560px; }
+.courses-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ccard { padding: 18px 18px 16px; }
+.ccard-stato { font-size: 10px; margin-bottom: 7px; }
+.ccard h3 { font-size: 17px; margin-bottom: 5px; }
+.ccard-sub { font-size: 13px; line-height: 1.4; }
+.ccard-desc { font-size: 12.5px; line-height: 1.45; margin-top: 8px; }
+.ccard-meta { margin: 10px 0 14px; font-size: 12.5px; }
+.ccard .ccard-meta { margin-bottom: 14px; }
+.ccard-meta li { padding: 2px 0; gap: 10px; }
+.ccard-meta span { min-width: 78px; font-size: 10px; }
+.ccard-btn { padding: 9px 16px; font-size: 11px; }
+@media (max-width: 960px) { .courses-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .courses-grid { grid-template-columns: 1fr; } .lmodal-card--wide { padding: 52px 20px 28px; } }
+
+/* ── Finestre sovrapposte: il pulsante di chiusura è solo una X (regola valida per tutte) ── */
+.lmodal-close, .co-close {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; padding: 0; font-size: 22px; line-height: 1; letter-spacing: 0; text-transform: none;
+}
+
+/* Pulsanti di call to action: senza freccia, ovunque */
+.cta-btn .arrow { display: none; }
+
+/* ── Iscrizione: icone e testi dei passi allineati alle icone delle schede sotto (separatori invariati) ── */
+.stepsx li { padding-left: 32px; }
+.groupbox { padding-left: 32px; }
+@media (max-width: 720px) { .stepsx li { padding-left: 24px; } .groupbox { padding-left: 24px; } .guarantee { padding-left: 24px; } }
 
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }

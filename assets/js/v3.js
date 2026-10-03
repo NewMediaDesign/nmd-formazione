@@ -107,6 +107,8 @@
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
     document.addEventListener('click', (e) => {
+      const om = e.target.closest('[data-open-modal]');
+      if (om && !e.ctrlKey && !e.metaKey && !e.shiftKey) { e.preventDefault(); open(om.dataset.openModal); return; }
       if (e.target.closest('[data-close]')) { close(); return; }
       const a = e.target.closest('a[href$="condizioni.html"], a[href$="privacy.html"]');
       if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return;
