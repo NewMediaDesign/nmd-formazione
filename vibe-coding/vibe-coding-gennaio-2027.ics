@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//New Media Design//Vibe Coding//IT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Vibe Coding · gennaio 2027
+BEGIN:VEVENT
+UID:vibe-coding-2027-01-18@nmd-formazione.it
+DTSTAMP:20261110T120000Z
+DTSTART:20270118T170000Z
+DTEND:20270118T200000Z
+SUMMARY:Vibe Coding · Sessione 1 di 3
+DESCRIPTION:Corso online in diretta su Google Meet. Il link arriva via email prima della sessione.
+LOCATION:Google Meet (link via email)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Domani: Vibe Coding · Sessione 1 di 3
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Tra un'ora: Vibe Coding · Sessione 1 di 3
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vibe-coding-2027-01-20@nmd-formazione.it
+DTSTAMP:20261110T120000Z
+DTSTART:20270120T170000Z
+DTEND:20270120T200000Z
+SUMMARY:Vibe Coding · Sessione 2 di 3
+DESCRIPTION:Corso online in diretta su Google Meet. Il link arriva via email prima della sessione.
+LOCATION:Google Meet (link via email)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Domani: Vibe Coding · Sessione 2 di 3
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Tra un'ora: Vibe Coding · Sessione 2 di 3
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vibe-coding-2027-01-22@nmd-formazione.it
+DTSTAMP:20261110T120000Z
+DTSTART:20270122T170000Z
+DTEND:20270122T200000Z
+SUMMARY:Vibe Coding · Sessione 3 di 3
+DESCRIPTION:Corso online in diretta su Google Meet. Il link arriva via email prima della sessione.
+LOCATION:Google Meet (link via email)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Domani: Vibe Coding · Sessione 3 di 3
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Tra un'ora: Vibe Coding · Sessione 3 di 3
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
