@@ -964,6 +964,45 @@ body.lmodal-open { overflow: hidden; }
 /* Ritratto tondo nella hero: mai compresso dal testo accanto (sul telefono si ovalizzava) */
 .hero-who img { flex: none; aspect-ratio: 1 / 1; object-fit: cover; }
 
+/* ── Menu a scomparsa (hamburger) su tablet e telefono ──
+   Il pulsante e la copia di «Iscrizione» li aggiunge draft.js, solo nelle pagine con piu voci.
+   Le pagine con una voce sola (condizioni, privacy, grazie) la tengono visibile nella barra. */
+.bar-toggle, .bar-cta { display: none; }
+@media (max-width: 960px) {
+  .bar-nav a:only-child { display: inline-block; }
+  .bar.has-menu .bar-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; gap: 0; padding: 6px 28px 14px;
+    background: var(--nmd-white); border-bottom: 1px solid var(--border);
+    box-shadow: 0 18px 30px -18px rgba(20, 40, 80, 0.28);
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity 0.22s ease, transform 0.22s var(--ease-out), visibility 0s linear 0.22s;
+  }
+  .bar.has-menu.is-open .bar-nav { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .bar.has-menu .bar-nav a { display: block; padding: 15px 0; font-size: 12px; border-top: 1px solid var(--border); }
+  .bar.has-menu .bar-nav a:first-child { border-top: 0; }
+  .bar.has-menu .bar-nav a::after { display: none; }
+  .bar.has-menu .bar-cta {
+    display: inline-block; margin-left: auto; margin-right: 14px; padding: 6px 0;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: var(--tracking-mono-label); text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+  }
+  .bar.has-menu .bar-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; margin-right: -8px; padding: 0;
+    border: 0; border-radius: 8px; background: none; cursor: pointer;
+    color: var(--nmd-grey-700); transition: color 0.2s ease;
+  }
+  .bar.has-menu .bar-toggle:hover, .bar.has-menu.is-open .bar-toggle { color: var(--accent); }
+  .bar-toggle svg { width: 22px; height: 22px; }
+  .bar-toggle .ic-close, .bar.is-open .bar-toggle .ic-open { display: none; }
+  .bar.is-open .bar-toggle .ic-close { display: block; }
+}
+@media (max-width: 720px) {
+  .bar.has-menu .bar-nav { padding: 6px 20px 14px; }
+}
+
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }
 .course-list li { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--nmd-grey-200); align-items: baseline; }

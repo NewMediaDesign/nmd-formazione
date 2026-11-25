@@ -156,3 +156,49 @@
     hide(); armIdle();
   });
 })();
+
+// ── Menu a scomparsa (hamburger) su tablet e telefono ──
+// Solo nelle pagine con piu voci di menu (le pagine dei corsi). Sotto i 960 px le voci stanno
+// in un pannello che si apre dal pulsante; «Iscrizione», se c'e, resta visibile nella barra.
+// Icone Phosphor Bold «list» e «x» (icons/).
+(function () {
+  const bar = document.querySelector('.bar');
+  const nav = bar && bar.querySelector('.bar-nav');
+  if (!nav || nav.querySelectorAll('a').length < 3) return;
+  const LIST = '<svg class="ic-open" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/></svg>';
+  const X = '<svg class="ic-close" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/></svg>';
+  nav.id = nav.id || 'bar-nav';
+  // Senza transizione al primo passaggio: il pannello non deve dissolversi all'apertura della pagina.
+  nav.style.transition = 'none';
+  bar.classList.add('has-menu');
+  void nav.offsetHeight;
+  nav.style.transition = '';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'bar-toggle';
+  btn.setAttribute('aria-controls', nav.id);
+  btn.innerHTML = LIST + X;
+  const iscr = nav.querySelector('a[href="#iscrizione"]');
+  if (iscr) {
+    const cta = iscr.cloneNode(true);
+    cta.className = 'bar-cta';
+    cta.removeAttribute('aria-current');
+    nav.after(cta);
+    cta.after(btn);
+  } else nav.after(btn);
+  const set = (open) => {
+    bar.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+  };
+  set(false);
+  btn.addEventListener('click', () => set(!bar.classList.contains('is-open')));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+  document.addEventListener('click', (e) => { if (!bar.contains(e.target)) set(false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && bar.classList.contains('is-open')) { set(false); btn.focus(); }
+  });
+  const wide = matchMedia('(min-width: 961px)');
+  const onWide = () => { if (wide.matches) set(false); };
+  if (wide.addEventListener) wide.addEventListener('change', onWide); else wide.addListener(onWide);
+})();
