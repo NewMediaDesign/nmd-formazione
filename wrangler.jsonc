@@ -12,7 +12,13 @@
     // Indirizzo sbagliato: si mostra 404.html con codice 404 (mai la pagina principale)
     "not_found_handling": "404-page"
   },
-  // Indirizzo tecnico *.workers.dev: serve per le prove; si spegne quando il dominio passa a Cloudflare.
-  "workers_dev": true,
+  // Domini del sito (collegati dal pannello il 25/11; qui perché la configurazione resti la fonte unica).
+  // www rimanda al dominio senza www con una Redirect Rule della zona, non da qui.
+  "routes": [
+    { "pattern": "nmd-formazione.it", "custom_domain": true },
+    { "pattern": "www.nmd-formazione.it", "custom_domain": true }
+  ],
+  // Indirizzo tecnico *.workers.dev spento: non fa concorrenza al dominio su Google.
+  "workers_dev": false,
   "preview_urls": false
 }
