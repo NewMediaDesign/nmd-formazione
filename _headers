@@ -1,0 +1,22 @@
+# Intestazioni HTTP del sito su Cloudflare (GitHub Pages ignora questo file).
+# Regole: https://developers.cloudflare.com/workers/static-assets/headers/
+# Attenzione: se due regole danno la stessa intestazione allo stesso indirizzo, Cloudflare unisce i valori.
+
+# Sicurezza, su tutte le pagine
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# Cache: i font non cambiano mai, immagini e video possono cambiare (una settimana).
+# HTML, CSS e JS restano col comportamento predefinito (il browser ricontrolla a ogni visita).
+/assets/css/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/ds/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/img/*
+  Cache-Control: public, max-age=604800
+/assets/video/*
+  Cache-Control: public, max-age=604800

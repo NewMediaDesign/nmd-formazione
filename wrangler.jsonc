@@ -1,0 +1,18 @@
+// Configurazione del sito su Cloudflare Workers (solo file statici, nessun codice).
+// Cloudflare la legge a ogni pubblicazione su GitHub (repository nmd-formazione); GitHub Pages la ignora.
+// Guida: https://developers.cloudflare.com/workers/static-assets/
+{
+  "name": "nmd-formazione",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    // Il sito è questa cartella. I file da non pubblicare sono in .assetsignore.
+    "directory": ".",
+    // /privacy.html diventa /privacy, /vibe-coding/index.html diventa /vibe-coding/
+    "html_handling": "auto-trailing-slash",
+    // Indirizzo sbagliato: si mostra 404.html con codice 404 (mai la pagina principale)
+    "not_found_handling": "404-page"
+  },
+  // Indirizzo tecnico *.workers.dev: serve per le prove; si spegne quando il dominio passa a Cloudflare.
+  "workers_dev": true,
+  "preview_urls": false
+}

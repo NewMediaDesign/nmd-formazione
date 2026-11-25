@@ -1,0 +1,9 @@
+# File della cartella che Cloudflare NON deve pubblicare (sintassi di .gitignore).
+.git
+.wrangler
+node_modules
+wrangler.jsonc
+README.md
+# Servono solo a GitHub Pages
+CNAME
+.nojekyll
