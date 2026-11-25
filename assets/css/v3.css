@@ -1003,6 +1003,20 @@ body.lmodal-open { overflow: hidden; }
   .bar.has-menu .bar-nav { padding: 6px 20px 14px; }
 }
 
+/* ── Niente parole orfane (regola dell'utente, 2026-11-25) ──
+   L'ultima riga di un paragrafo non resta con una parola sola: il browser va a capo prima.
+   I titoli si bilanciano su righe di lunghezza simile. */
+p, li, dd, figcaption, blockquote, .hero-sub, .hero-promise { text-wrap: pretty; }
+h1, h2, h3, h4, .headline { text-wrap: balance; }
+
+/* ── Catalogo: la scheda di un corso con la sua pagina si clicca per intero ──
+   Il collegamento del pulsante si allarga a tutta la scheda; i corsi senza pagina
+   («Richiedi info») restano come sono. */
+.ccard { position: relative; }
+.ccard a.ccard-btn::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.ccard a.ccard-btn:hover { transform: none; }
+.ccard:has(a.ccard-btn):hover a.ccard-btn { box-shadow: 0 8px 18px rgba(10, 106, 191, 0.35); }
+
 /* ── Pagine del sito (home, corsi, grazie) ── */
 .course-list { list-style: none; border-top: 1px solid var(--nmd-grey-200); }
 .course-list li { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--nmd-grey-200); align-items: baseline; }
