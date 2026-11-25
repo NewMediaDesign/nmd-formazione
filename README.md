@@ -87,3 +87,7 @@ Obiettivo: evitare che un'azienda iscriva una persona e poi giri le registrazion
 ## Stripe LIVE (dal 2026-10-03)
 
 Prodotto `prod_VNLO1kzFfvtXYj`, prezzi 199 € (early bird, fino al 16/10) e 240 €. Payment Link live: `https://buy.stripe.com/5kQ7sK53b9IFcxyea7gA800` (199 €) e `https://buy.stripe.com/5kQbJ0fHP6wt69ad63gA801` (240 €). Solo carta, 25 posti per link (il totale lo controlla l'utente), ritorno a `vibe-coding/grazie.html`. Creati con `server/setup_live.py` e una chiave con restrizioni in `server/.env.live` (non versionato). Webhook live verso Render; il server crea la fattura in Fatture in Cloud e l'invio allo SDI lo fa l'utente a mano.
+
+## Pagine dei corsi lette da course.json (dal 2026-11-10)
+
+La pagina `claude/` NON si scrive a mano: la genera `bozze/vibe-coding-v3/_sorgenti/build_corso.py` (lanciato da `build_sito.py`) leggendo `courses/<corso>/course.json` nel progetto dei contenuti (`NMD_Slide-Template`), che è l'unica fonte dei testi. Il percorso di quel progetto sta **solo** in `bozze/vibe-coding-v3/_sorgenti/config.json` (o nella variabile d'ambiente `NMD_CONTENUTI`, che ha la precedenza): cambiare lì se il disco cambia lettera. Campi vuoti o «[da definire]» = blocco nascosto; `internalNotes`, `scheda`, `program[].sections`, `derivati` non si leggono mai; i testi non si correggono nel sito ma in `course.json`. Rigenerare: `python bozze/vibe-coding-v3/_sorgenti/build_sito.py`. Finché `status` è `in-arrivo` la pagina resta `noindex`.
